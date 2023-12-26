@@ -9,8 +9,10 @@
  */
 package slice
 
+import goplugin "github.com/gz4z2b/go-plugin"
+
 // 排序
-func Sort[T compareable](slice []T, asc bool) []T {
+func Sort[T goplugin.Compareable](slice []T, asc bool) []T {
 	if len(slice) == 0 {
 		return slice
 	}

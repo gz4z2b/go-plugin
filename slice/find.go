@@ -9,8 +9,10 @@
  */
 package slice
 
+import goplugin "github.com/gz4z2b/go-plugin"
+
 // Find 查抄切片中指定值的首次出现的位置, 若未找到返回-1
-func Find[T compareable](slice []T, val T) int {
+func Find[T goplugin.Compareable](slice []T, val T) int {
 	for i, v := range slice {
 		if v == val {
 			return i

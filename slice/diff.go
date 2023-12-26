@@ -9,8 +9,10 @@
  */
 package slice
 
+import goplugin "github.com/gz4z2b/go-plugin"
+
 // Diff 求差集
-func Diff[T compareable](src, dst []T) []T {
+func Diff[T goplugin.Compareable](src, dst []T) []T {
 	diff := []T{}
 	for _, v := range src {
 		if Find(dst, v) == -1 {

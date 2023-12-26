@@ -9,8 +9,10 @@
  */
 package slice
 
+import goplugin "github.com/gz4z2b/go-plugin"
+
 // Delete 删除指定位置的元素
-func Delete[T number](slice []T, i int) ([]T, error) {
+func Delete[T goplugin.Number](slice []T, i int) ([]T, error) {
 	if i < 0 || i >= len(slice) {
 		return slice, ErrIndexOutOfRange
 	}
@@ -18,7 +20,7 @@ func Delete[T number](slice []T, i int) ([]T, error) {
 }
 
 // DeleteMulti 删除多个指定位置的元素
-func DeleteMulti[T number](slice []T, idxs []int) ([]T, error) {
+func DeleteMulti[T goplugin.Number](slice []T, idxs []int) ([]T, error) {
 	if len(idxs) == 0 {
 		return slice, nil
 	}

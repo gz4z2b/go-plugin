@@ -9,8 +9,10 @@
  */
 package slice
 
+import goplugin "github.com/gz4z2b/go-plugin"
+
 // Add 切片指定位置插入元素操作
-func Add[T number](slice []T, idx int, val T) ([]T, error) {
+func Add[T goplugin.Number](slice []T, idx int, val T) ([]T, error) {
 	if idx > len(slice) {
 		return nil, ErrIndexOutOfRange
 	}

@@ -127,3 +127,46 @@ func TestKeyValues(t *testing.T) {
 		})
 	}
 }
+
+func TestKSortValues(t *testing.T) {
+	type args struct {
+		m   map[string]int
+		asc bool
+	}
+	tests := []struct {
+		name   string
+		args   args
+		keys   []string
+		values []int
+	}{
+		{
+			name: "不为空的",
+			args: args{
+				m: map[string]int{
+					"a": 1,
+					"c": 2,
+					"b": 3,
+				},
+				asc: true,
+			},
+			keys:   []string{"a", "b", "c"},
+			values: []int{1, 3, 2},
+		},
+		{
+			name: "为空的",
+			args: args{
+				m:   map[string]int{},
+				asc: true,
+			},
+			keys:   []string{},
+			values: []int{},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			keys, values := KSortValues[string, int](tt.args.m, tt.args.asc)
+			assert.Equal(t, tt.keys, keys)
+			assert.Equal(t, tt.values, values)
+		})
+	}
+}

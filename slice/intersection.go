@@ -9,8 +9,10 @@
  */
 package slice
 
+import goplugin "github.com/gz4z2b/go-plugin"
+
 // Intersection 求交集
-func Intersection[T compareable](a, b []T) []T {
+func Intersection[T goplugin.Compareable](a, b []T) []T {
 	res := []T{}
 	for _, v := range a {
 		if Find(b, v) != -1 {

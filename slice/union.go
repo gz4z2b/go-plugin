@@ -9,8 +9,10 @@
  */
 package slice
 
+import goplugin "github.com/gz4z2b/go-plugin"
+
 // Union 求并集
-func Union[T compareable](a, b []T) []T {
+func Union[T goplugin.Compareable](a, b []T) []T {
 	var result []T
 	for _, v := range a {
 		if Find[T](result, v) == -1 {
